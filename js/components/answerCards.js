@@ -14,6 +14,7 @@ function AnswerCardsController($scope, AnswersFactory){
   $scope.$parent.reset = function(num){
     if(num >= 0 && num <= 10){
       ac.aCards = shuffleArray(cards, num);
+      $scope.$parent.newQuestion();
     }
   }
 }

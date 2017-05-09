@@ -1,7 +1,6 @@
 angular.module('CardsAgainstAssembly', ['CardsApp'])
 .controller("CardsCtrl", ["$scope", "QuestionsFactory", function($scope, QuestionsFactory){
   $scope.qCards = QuestionsFactory.getCards();
-  $scope.displayCard = $scope.qCards[pickCardIndex($scope.qCards.length)];
   $scope.numPlayers = 3;
   $scope.errorMessage = "";
 
@@ -15,6 +14,12 @@ angular.module('CardsAgainstAssembly', ['CardsApp'])
       $scope.errorMessage = "That seems like too many people.";
     }
   });
+
+  $scope.newQuestion = function(){
+    $scope.displayCard = $scope.qCards[pickCardIndex($scope.qCards.length)];
+  }
+
+  $scope.newQuestion();
 }]);
 
 function pickCardIndex(size){
