@@ -23,23 +23,35 @@ h1 {
   letter-spacing: -2px;
   max-width: 100px;
 }
-h1:after, .card h6:after {
+h1:after,
+.card h6:after {
   content: "™";
   font-size: 1rem;
   vertical-align: super;
   margin-left: 0.192rem;
 }
 
-.card {
+.card{
   background: #231e1e;
-  border-color: black;
   color: white;
+}
+
+.answer-card {
+  background-color: white;
+  color: black;
+}
+
+.card,
+.answer-card {
+  border: 1px solid black;
+  border-radius: 5px;
   padding: 1rem;
   min-height: 16rem;
   position: relative;
 }
 
-.card h6 {
+.card h6,
+.answer-card h6 {
   position: absolute;
   font-size: 0.6rem;
   margin-top: 1.618rem;
@@ -47,7 +59,8 @@ h1:after, .card h6:after {
   bottom: 0.618rem;
   left: 1rem;
 }
-.card h6:after {
+.card h6:after,
+.answer-card h6:after {
   font-size: 60%;
   margin-left: 1px;
 }
