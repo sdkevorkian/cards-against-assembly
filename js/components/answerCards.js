@@ -1,19 +1,31 @@
+/*global angular*/
+
+// no dependencies, name and then options
+
 angular.module("CardsAgainstAssembly")
     .component("answerCards", {
-        templateUrl: "js/components/views/answerCards.html",
-        controller: ["$scope", "AnswersFactory", AnswerCardsController],
-        controllerAs: "ac",
+
+        templateUrl: 'js/components/views/answerCards.html',
+        controller: ['$scope', "AnswersFactory", AnswerCardsController],
+        // give alias so we don't have to use this keyword and its more identifiable
+        controllerAs: 'ac',
+
         scope: true
     });
 
 function AnswerCardsController($scope, AnswersFactory) {
+
     var ac = this;
 
     console.log($scope.$parent.deckset)
 
     ac.answerCards = chooseDeck(cards, $scope.$parent.deckset)
     console.log('cards are', ac.answerCards)
-    ac.answerCards = shuffleAndLimit(ac.answerCards, $scope.$parent.numPlayers)
+  
+  // this may be where we need to add the watch group on both numPlayers and deckset
+    $scope.$watch('$parent.numPlayers', function(newVal, oldVal) {
+        ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers);
+    });
 
     function chooseDeck(cards, deckset) {
         var cards
@@ -38,5 +50,6 @@ function AnswerCardsController($scope, AnswersFactory) {
 
         return shuffled.slice(0, limit);
     }
+
 
 }

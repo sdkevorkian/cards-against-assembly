@@ -1,3 +1,4 @@
+/*global angular*/
 angular.module("CardsApp", [])
     .factory('QuestionsFactory', [function() {
         return {
@@ -20,12 +21,11 @@ angular.module("CardsApp", [])
                     { question: "________ is my brand." },
                     { question: "She is compaining about _______________ again." },
                     { question: "___________ is my main bitch." }
+
                 ];
             }
         };
     }])
-
-
 .factory('AnswersFactory', [function() {
     return {
         getCards: function() {

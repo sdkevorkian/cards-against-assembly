@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang='en' ng-app="CardsAgainstAssembly">
 
@@ -18,10 +19,18 @@
         <header class='navbar'>
             <h1 class='pull-left'>Cards Against Assembly</h1>
         </header>
-        <div class="game-setup row">
+
+        <div class="game-setup row" ng-hide="gameStarted">
+     
             <div class="players col-sm-5">
                 <h4>How many people are playing?</h4>
                 <input type="number" ng-model="numPlayers" placeholder="Choose 3 to 9 players">
+                <input type="number" ng-model="numPlayers" min="3" max="9">
+                <button type="button" class="btn btn-primary" ng-click="addPlayers()">add Players</button>
+                <div ng-repeat="player in players track by $index">
+                    <input type="text" ng-model="player.playerName">
+                    <p>Player {{$index +1}} is {{player.playerName}}</p>
+                </div>
             </div>
             <div class="deckset col-sm-5">
                 <h4>What deck do you want to play with? </h4> deckset is {{ deckset }}
@@ -31,6 +40,12 @@
             <button ng-click="newRound()" class="btn btn-primary col-sm-2">Start Next Round</button>
         </div>
     </div>
+              <div class="col-sm-12" id="startGame" ng-hide="!gameStarted">
+                <h2>Players are:</h2>
+                <p ng-repeat="player in players track by $index">
+                    Player {{$index + 1}} is {{player.playerName}}
+                </p>
+            </div>
     <br>
     <br>
     <section id="cards" class='container-fluid'>
@@ -50,6 +65,7 @@
     <footer>
         <p>Made with <span class='heart'>♥︎</span> at General Assembly</p>
     </footer>
+
     </div>
 </body>
 
