@@ -1,3 +1,4 @@
+/*global angular*/
 angular.module("CardsApp", [])
     .factory('QuestionsFactory', [function() {
         return {
@@ -18,7 +19,8 @@ angular.module("CardsApp", [])
                     { question: "Your new instructor is __________________." },
                     { question: "__________ is breaking the code of conduct?!" },
                     { question: "________ is my brand" },
-                    { question: "She is compaining about _______________ again." }
+                    { question: "She is compaining about _______________ again." },
+                    { question: "_________ is my main bitch." }
 
                 ];
             }
@@ -54,9 +56,11 @@ angular.module("CardsApp", [])
                     { answer: "Drinking wine and crying over my diploma." },
                     { answer: "The inability to save a file." },
                     { answer: "Being preppy as fuck." },
-                    { answer: "420 time." }
-
+                    { answer: "420 time." },
+                    { answer: "Angular.js" },
+                    { answer: "The previous administration." }
                 ];
-            }
+            },
+
         };
     }]);

@@ -16,8 +16,9 @@ function AnswerCardsController($scope, AnswersFactory) {
     var ac = this;
     var cards = AnswersFactory.getCards();
     // $parent lets us access a variable in scope of parent controller
-    ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers);
-    console.log(ac.answerCards);
+    $scope.$watch('$parent.numPlayers', function(newVal, oldVal) {
+        ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers);
+    });
 }
 
 function shuffleAndLimit(cards, limit) {

@@ -18,9 +18,24 @@
         <header class='navbar'>
             <h1 class='pull-left'>Cards Against Assembly</h1>
         </header>
-        <h2>How many people are playing?</h2>
-        <input type="number" ng-model="numPlayers" disabled>
-        <button type="button" class="btn btn-lg btn-primary" ng-click="newQuestion()">start new round</button>
+        <div class="row">
+            <div class="col-sm-12" id="initialize-game" ng-hide="gameStarted">
+                <h2>How many people are playing?</h2>
+                <input type="number" ng-model="numPlayers" min="3" max="9">
+                <button type="button" class="btn btn-primary" ng-click="addPlayers()">add Players</button>
+                <div ng-repeat="player in players track by $index">
+                    <input type="text" ng-model="player.playerName">
+                    <p>Player {{$index +1}} is {{player.playerName}}</p>
+                </div>
+                <button type="button" class="btn btn-lg btn-primary" ng-click="startGame()">start new round</button>
+            </div>
+            <div class="col-sm-12" id="startGame" ng-hide="!gameStarted">
+                <h2>Players are:</h2>
+                <p ng-repeat="player in players track by $index">
+                    Player {{$index + 1}} is {{player.playerName}}
+                </p>
+            </div>
+        </div>
         <!-- Let's make a number field and button so we can say how many players -->
         <section id="cards" class='container-fluid'>
             <div class='row'>
