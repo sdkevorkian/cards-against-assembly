@@ -21,41 +21,35 @@
         <div class="game-setup row">
             <div class="players col-sm-5">
                 <h4>How many people are playing?</h4>
-                <input type="number" ng-model="numPlayers" placeholder="Choose 3 to 8 players">
+                <input type="number" ng-model="numPlayers" placeholder="Choose 3 to 9 players">
             </div>
             <div class="deckset col-sm-5">
                 <h4>What deck do you want to play with? </h4>
-                <div class="dropdown" ng-model="deckset">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Deck Set<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Original (Default)</a></li>
-                        <li><a href="#">Dev Life</a></li>
-                    </ul>
-                </div>
+                <input type="radio" name="deckset" ng-model="deckset" ng-value="original">Original (Default)
+                <input type="radio" name="deckset" ng-model="deckset" ng-value="webdev">Web Dev Life
             </div>
             <button ng-click="newRound()" class="btn btn-primary col-sm-2">Start Next Round</button>
         </div>
-        <br>
-        <br>
-        <section id="cards" class='container-fluid'>
-            <div class='row'>
-                <div class='col-sm-3'>
-                    <h2>The Question:</h2>
-                    <div class='card'>
-                        <h4 class="card-title">{{ displayCard }}</h4>
-                        <h6>Cards Against Assembly</h6>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <answer-cards></answer-cards>
+    </div>
+    <br>
+    <br>
+    <section id="cards" class='container-fluid'>
+        <div class='row'>
+            <div class='col-sm-3'>
+                <h2>The Question:</h2>
+                <div class='card'>
+                    <h4 class="card-title">{{ displayCard }}</h4>
+                    <h6>Cards Against Assembly</h6>
                 </div>
             </div>
-        </section>
-        <footer>
-            <p>Made with <span class='heart'>♥︎</span> at General Assembly</p>
-        </footer>
+            <div class="col-sm-9">
+                <answer-cards></answer-cards>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Made with <span class='heart'>♥︎</span> at General Assembly</p>
+    </footer>
     </div>
 </body>
 

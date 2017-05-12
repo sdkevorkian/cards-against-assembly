@@ -8,13 +8,12 @@ angular.module("CardsAgainstAssembly")
 
 function AnswerCardsController($scope, AnswersFactory) {
     var ac = this;
-    var deckset =
 
-        if (deckset === webdev) {
-            var cards = AnswersFactory.getDevCards()
-        } else {
-            var cards = AnswersFactory.getCards()
-        };
+    if ($scope.deckset = "webdev") {
+        var cards = AnswersFactory.getDevCards()
+    } else {
+        var cards = AnswersFactory.getCards()
+    };
 
     ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers)
 

@@ -23,7 +23,7 @@ angular.module("CardsApp", [])
                 ];
             }
         };
-    }]);
+    }])
 
 
 .factory('AnswersFactory', [function() {
@@ -54,13 +54,11 @@ angular.module("CardsApp", [])
                 { answer: "Batman." },
                 { answer: "Your mom." },
                 { answer: "A bag of dicks." },
-                { answer: "Drinking wine and crying over my diploma." },
-                { answer: "The inability to save a file." },
                 { answer: "Being preppy as fuck." },
                 { answer: "420 time." },
                 { answer: "The previous administration." }
             ];
-        }
+        },
         getDevCards: function() {
             return [
                 { answer: "A lifetime of sadness." },
@@ -70,6 +68,15 @@ angular.module("CardsApp", [])
                 { answer: "An out-of-place semicolon." },
                 { answer: "Typos." },
                 { answer: "General Assembly Happy Hour." },
+                { answer: "Learning how to learn." },
+                { answer: "The Code of Conduct." },
+                { answer: "A game of cornhole." },
+                { answer: "Classroom 2." },
+                { answer: "Lord of the Flies couch situation." },
+                { answer: "In-class labs." },
+                { answer: "Error messages." },
+                { answer: "Another 404." },
+                { answer: "Whiteboarding your life plan." },
                 { answer: "Networking." }
             ];
         }
