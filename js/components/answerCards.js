@@ -17,26 +17,25 @@ function AnswerCardsController($scope, AnswersFactory) {
 
     var ac = this;
 
-    console.log($scope.$parent.deckset)
+    console.log($scope.$parent.deckset);
 
-    ac.answerCards = chooseDeck(cards, $scope.$parent.deckset)
-    console.log('cards are', ac.answerCards)
-  
-  // this may be where we need to add the watch group on both numPlayers and deckset
+    var cards = chooseDeck($scope.$parent.deckset);
+    console.log('cards are', cards);
+
+    // this may be where we need to add the watch group on both numPlayers and deckset
     $scope.$watch('$parent.numPlayers', function(newVal, oldVal) {
         ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers);
     });
 
-    function chooseDeck(cards, deckset) {
-        var cards
-
+    function chooseDeck(deckset) {
+        var themedCards = [];
         if (deckset == "webdev") {
-            cards = AnswersFactory.getDevCards()
+            themedCards = AnswersFactory.getDevCards();
         } else {
-            cards = AnswersFactory.getCards()
-        };
+            themedCards = AnswersFactory.getCards();
+        }
 
-        return cards
+        return themedCards;
     }
 
     function shuffleAndLimit(cards, limit) {
