@@ -3,7 +3,6 @@ angular.module('CardsAgainstAssembly', ['CardsApp'])
     .controller("CardsCtrl", ["$scope", "QuestionsFactory", function($scope, QuestionsFactory) {
         console.log("Cards Controller");
 
-
         // loads cards from QuestionFactory
         var questionCards = QuestionsFactory.getCards();
         $scope.displayCard = 'loading...';
@@ -37,10 +36,11 @@ angular.module('CardsAgainstAssembly', ['CardsApp'])
             }
         };
 
-        $scope.startGame = function() {
+        $scope.newRound = function() {
             $scope.gameStarted = true;
             $scope.newQuestion();
         };
+
 
     }]);
 

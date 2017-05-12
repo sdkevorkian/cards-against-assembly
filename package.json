@@ -1,0 +1,22 @@
+{
+  "name": "cards-against-assembly",
+  "version": "1.0.0",
+  "description": "## Objective",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alainabuzas/cards-against-assembly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alainabuzas/cards-against-assembly/issues"
+  },
+  "homepage": "https://github.com/alainabuzas/cards-against-assembly#readme"
+}
