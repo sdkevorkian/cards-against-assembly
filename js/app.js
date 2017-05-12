@@ -2,6 +2,8 @@ angular.module('CardsAgainstAssembly', ['CardsApp'])
     .controller("CardsCtrl", ["$scope", "QuestionsFactory", function($scope, QuestionsFactory) {
         console.log("Cards Controller");
 
+        $scope.deckset = 'webdev'
+
         var questionCards = QuestionsFactory.getCards();
         $scope.numPlayers = 3;
 

@@ -9,24 +9,34 @@ angular.module("CardsAgainstAssembly")
 function AnswerCardsController($scope, AnswersFactory) {
     var ac = this;
 
-    if ($scope.deckset = "webdev") {
-        var cards = AnswersFactory.getDevCards()
-    } else {
-        var cards = AnswersFactory.getCards()
-    };
+    console.log($scope.$parent.deckset)
 
-    ac.answerCards = shuffleAndLimit(cards, $scope.$parent.numPlayers)
+    ac.answerCards = chooseDeck(cards, $scope.$parent.deckset)
+    console.log('cards are', ac.answerCards)
+    ac.answerCards = shuffleAndLimit(ac.answerCards, $scope.$parent.numPlayers)
 
-}
+    function chooseDeck(cards, deckset) {
+        var cards
 
-function shuffleAndLimit(cards, limit) {
-    if (limit > cards.length) {
-        limit = cards.length;
+        if (deckset == "webdev") {
+            cards = AnswersFactory.getDevCards()
+        } else {
+            cards = AnswersFactory.getCards()
+        };
+
+        return cards
     }
 
-    var shuffled = cards.sort(function() {
-        return 0.5 - Math.random();
-    });
+    function shuffleAndLimit(cards, limit) {
+        if (limit > cards.length) {
+            limit = cards.length;
+        }
 
-    return shuffled.slice(0, limit);
+        var shuffled = cards.sort(function() {
+            return 0.5 - Math.random();
+        });
+
+        return shuffled.slice(0, limit);
+    }
+
 }
